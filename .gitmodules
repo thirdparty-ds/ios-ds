@@ -1,0 +1,3 @@
+[submodule "ds-rs"]
+	path = ds-rs
+	url = https://github.com/first-rust-competition/ds-rs.git

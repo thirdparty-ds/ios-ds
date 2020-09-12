@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -18,7 +18,7 @@
 		0E55952724F1DF3000646597 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E55952624F1DF3000646597 /* Preview Assets.xcassets */; };
 		0E55953224F1DF3000646597 /* ios_dsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E55953124F1DF3000646597 /* ios_dsTests.swift */; };
 		0E55953D24F1DF3000646597 /* ios_dsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E55953C24F1DF3000646597 /* ios_dsUITests.swift */; };
-		0E86E60E24F1E3B400CAC852 /* liblibDS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E55954C24F1E2F100646597 /* liblibDS.a */; };
+		0E86E60E24F1E3B400CAC852 /* liblibDS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E55954C24F1E2F100646597 /* liblibDS.a */; settings = {ATTRIBUTES = (Required, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -168,6 +168,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0E55954124F1DF3000646597 /* Build configuration list for PBXNativeTarget "ios-ds" */;
 			buildPhases = (
+				78B03A2B250D6F4C0005FD1B /* Run Script */,
 				0E55951824F1DF2F00646597 /* Sources */,
 				0E55951924F1DF2F00646597 /* Frameworks */,
 				0E55951A24F1DF2F00646597 /* Resources */,
@@ -284,6 +285,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		78B03A2B250D6F4C0005FD1B /* Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/bash;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nexport PATH=\"$HOME/.cargo/bin:$PATH\"\ncargo lipo --manifest-path ds-rs/libDS/Cargo.toml\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0E55951824F1DF2F00646597 /* Sources */ = {
@@ -455,8 +478,9 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"ios-ds/Preview Content\"";
+				DEVELOPMENT_TEAM = 7CVRGWH2N8;
 				ENABLE_PREVIEWS = YES;
-				HEADER_SEARCH_PATHS = "/Users/prateekma/Documents/Dev/ios-ds/libds/include";
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/ds-rs/libDS";
 				INFOPLIST_FILE = "ios-ds/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -465,11 +489,11 @@
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/libds/libs",
+					"$(PROJECT_DIR)/ds-rs/libDS/target/universal/release",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.github.prateekma.ios-ds";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/prateekma/Documents/Dev/ios-ds/libds/include/libDS.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "ds-rs/libDS/libDS.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -482,8 +506,9 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"ios-ds/Preview Content\"";
+				DEVELOPMENT_TEAM = 7CVRGWH2N8;
 				ENABLE_PREVIEWS = YES;
-				HEADER_SEARCH_PATHS = "/Users/prateekma/Documents/Dev/ios-ds/libds/include";
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/ds-rs/libDS";
 				INFOPLIST_FILE = "ios-ds/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -492,11 +517,11 @@
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/libds/libs",
+					"$(PROJECT_DIR)/ds-rs/libDS/target/universal/release",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.github.prateekma.ios-ds";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/prateekma/Documents/Dev/ios-ds/libds/include/libDS.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "ds-rs/libDS/libDS.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
