@@ -9,11 +9,30 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text(String(initializeDS()))
-            .padding()
+        TabView {
+            OperationView()
+                .tabItem {
+                    Text("Operation")
+                }
+            OperationView()
+                .tabItem {
+                    Text("Operation2")
+                }
+//            DiagnosticsView()
+//            SetupView()
+//            ControllersView()
+//            PowerView()
+        }
     }
-    
 }
+
+//struct ContentView: View {
+//    var body: some View {
+//        Text(String(initializeDS()))
+//            .padding()
+//    }
+//
+//}
 
 func initializeDS() -> UInt32 {
     let alliance = DS_Alliance_new_blue(1);

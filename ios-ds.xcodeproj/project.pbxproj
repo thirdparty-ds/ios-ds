@@ -19,6 +19,9 @@
 		0E55953224F1DF3000646597 /* ios_dsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E55953124F1DF3000646597 /* ios_dsTests.swift */; };
 		0E55953D24F1DF3000646597 /* ios_dsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E55953C24F1DF3000646597 /* ios_dsUITests.swift */; };
 		0E86E60E24F1E3B400CAC852 /* liblibDS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E55954C24F1E2F100646597 /* liblibDS.a */; settings = {ATTRIBUTES = (Required, ); }; };
+		785CC6E0250EC81900842F94 /* OperationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785CC6DF250EC81900842F94 /* OperationView.swift */; };
+		785CC6E3250ECC1300842F94 /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = 785CC6E2250ECC1300842F94 /* Introspect */; };
+		785CC6E5250F516200842F94 /* DriverStationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785CC6E4250F516200842F94 /* DriverStationState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,9 +59,11 @@
 		0E55953824F1DF3000646597 /* ios-dsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ios-dsUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E55953C24F1DF3000646597 /* ios_dsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ios_dsUITests.swift; sourceTree = "<group>"; };
 		0E55953E24F1DF3000646597 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0E55954B24F1E2E500646597 /* libDS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = libDS.h; path = libds/include/libDS.h; sourceTree = "<group>"; };
-		0E55954C24F1E2F100646597 /* liblibDS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = liblibDS.a; path = libds/libs/liblibDS.a; sourceTree = "<group>"; };
+		0E55954B24F1E2E500646597 /* libDS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = libDS.h; path = "ds-rs/libDS/libDS.h"; sourceTree = SOURCE_ROOT; };
+		0E55954C24F1E2F100646597 /* liblibDS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = liblibDS.a; path = "ds-rs/libDS/target/universal/release/liblibDS.a"; sourceTree = SOURCE_ROOT; };
 		0E86E60D24F1E3A700CAC852 /* libsystem_asl.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsystem_asl.tbd; path = usr/lib/system/libsystem_asl.tbd; sourceTree = SDKROOT; };
+		785CC6DF250EC81900842F94 /* OperationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationView.swift; sourceTree = "<group>"; };
+		785CC6E4250F516200842F94 /* DriverStationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverStationState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +72,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0E86E60E24F1E3B400CAC852 /* liblibDS.a in Frameworks */,
+				785CC6E3250ECC1300842F94 /* Introspect in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,6 +119,7 @@
 			children = (
 				0E55951F24F1DF2F00646597 /* ios_dsApp.swift */,
 				0E55952124F1DF2F00646597 /* ContentView.swift */,
+				785CC6DF250EC81900842F94 /* OperationView.swift */,
 				0E55952324F1DF3000646597 /* Assets.xcassets */,
 				0E55952824F1DF3000646597 /* Info.plist */,
 				0E55952524F1DF3000646597 /* Preview Content */,
@@ -121,6 +128,7 @@
 				0E232B1024F344690035EC51 /* DSMode.swift */,
 				0E232B1224F347390035EC51 /* GameMode.swift */,
 				0E15C1D424F34C62006725FE /* MessageStack.swift */,
+				785CC6E4250F516200842F94 /* DriverStationState.swift */,
 			);
 			path = "ios-ds";
 			sourceTree = "<group>";
@@ -178,6 +186,9 @@
 			dependencies = (
 			);
 			name = "ios-ds";
+			packageProductDependencies = (
+				785CC6E2250ECC1300842F94 /* Introspect */,
+			);
 			productName = "ios-ds";
 			productReference = 0E55951C24F1DF2F00646597 /* ios-ds.app */;
 			productType = "com.apple.product-type.application";
@@ -249,6 +260,9 @@
 				Base,
 			);
 			mainGroup = 0E55951324F1DF2F00646597;
+			packageReferences = (
+				785CC6E1250ECC1300842F94 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
+			);
 			productRefGroup = 0E55951D24F1DF2F00646597 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -315,11 +329,13 @@
 			files = (
 				0E55952224F1DF2F00646597 /* ContentView.swift in Sources */,
 				0E232B0D24F33EBB0035EC51 /* DriverStation.swift in Sources */,
+				785CC6E0250EC81900842F94 /* OperationView.swift in Sources */,
 				0E15C1D524F34C62006725FE /* MessageStack.swift in Sources */,
 				0E232B1324F347390035EC51 /* GameMode.swift in Sources */,
 				0E232B1124F344690035EC51 /* DSMode.swift in Sources */,
 				0E232B0F24F33EE10035EC51 /* Alliance.swift in Sources */,
 				0E55952024F1DF2F00646597 /* ios_dsApp.swift in Sources */,
+				785CC6E5250F516200842F94 /* DriverStationState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -647,6 +663,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		785CC6E1250ECC1300842F94 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/siteline/SwiftUI-Introspect.git";
+			requirement = {
+				kind = exactVersion;
+				version = 0.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		785CC6E2250ECC1300842F94 /* Introspect */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 785CC6E1250ECC1300842F94 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */;
+			productName = Introspect;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0E55951424F1DF2F00646597 /* Project object */;
 }
