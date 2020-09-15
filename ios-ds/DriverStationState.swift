@@ -14,15 +14,105 @@ class DriverStationState: ObservableObject {
     let ds: DriverStation
     var timer: Timer?
     
-    @Published var isEnabled: Bool = false
-    @Published var isEstopped: Bool = false // read only
-    @Published var isCodeAlive: Bool = false // read only
-    @Published var isConnected: Bool = false // read only
-    @Published var batteryVoltage: Float = 0
-    @Published var teamNumber: UInt32 = 4096
-    @Published var dsMode: DSMode = DSMode.Real
-    @Published var gameMode: GameMode = GameMode.Teleoperated
-    @Published var alliance: Alliance = Alliance.Blue
+    private var _isEnabled: Bool = false
+    
+    var isEnabled: Bool {
+        get {
+            _isEnabled
+        }
+        set(enable){
+            if enable && isCodeAlive && isConnected && !isEstopped {
+                print("[user] Enable")
+                ds.enable()
+            } else {
+                print("[user] Disable")
+                ds.disable()
+            }
+        }
+    }
+    
+    private var _isEstopped: Bool = false
+    
+    var isEstopped: Bool {
+        get {
+            _isEstopped
+        }
+        set(estop){
+            if estop {
+                print("[user] Estop!")
+                ds.estop()
+            }
+        }
+    }
+    
+    private var _isCodeAlive: Bool = false
+    
+    var isCodeAlive: Bool {
+        get {
+            _isCodeAlive
+        }
+    }
+    
+    private var _isConnected: Bool = false
+    
+    var isConnected: Bool {
+        get {
+            _isConnected
+        }
+    }
+    
+    private var _batteryVoltage: Float = 0
+    
+    var batteryVoltage: Float {
+        get {
+            _batteryVoltage
+        }
+    }
+    
+    private var _teamNumber: UInt32 = 4096
+    
+    var teamNumber: UInt32 {
+        get {
+            _teamNumber
+        }
+        set(team) {
+            print("[user] Update team to \(team)")
+            ds.setTeamNumber(team: team)
+        }
+    }
+    
+    private var _dsMode: DSMode = DSMode.Real
+    
+    var dsMode: DSMode {
+        get {
+            _dsMode
+        }
+    }
+    
+    private var _gameMode: GameMode = GameMode.Teleoperated
+    
+    var gameMode: GameMode {
+        get {
+            _gameMode
+        }
+        set(gm) {
+            print("[user] Update gamemode to \(gm)")
+            ds.setGameMode(mode: gm)
+        }
+    }
+    
+    private var _alliance: Alliance = Alliance.Blue
+    
+    var alliance: Alliance {
+        get {
+            _alliance
+        }
+        set(al) {
+            print("[user] Update alliance to \(al)")
+            ds.setAlliance(alliance: al)
+        }
+    }
+    
     
     private init() {
         ds = DriverStation()
@@ -36,47 +126,55 @@ class DriverStationState: ObservableObject {
     static let shared = DriverStationState()
     
     @objc func sync() {
+        var hasSynced = false
+        
         // READ & WRITE
-        if isEnabled != ds.isEnabled() {
-            if !isEnabled {
-                ds.disable()
-            } else if isEnabled && isCodeAlive && isConnected && !isEstopped {
-                ds.enable()
-            }
-            
-            isEnabled = ds.isEnabled()
+        
+        if _isEnabled != ds.isEnabled() {
+            _isEnabled = ds.isEnabled()
+            hasSynced = true
         }
         
-        if teamNumber != ds.getTeamNumber() {
-            ds.setTeamNumber(team: teamNumber)
-            teamNumber = ds.getTeamNumber()
+        if _teamNumber != ds.getTeamNumber() {
+            _teamNumber = ds.getTeamNumber()
+            hasSynced = true
         }
         
-        if (gameMode != ds.getGameMode()){
-            ds.setGameMode(mode: gameMode)
-            gameMode = ds.getGameMode()
+        if (_gameMode != ds.getGameMode()){
+            _gameMode = ds.getGameMode()
+            hasSynced = true
+        }
+                
+        if _isEstopped != ds.isEstopped() {
+            _isEstopped = ds.isEstopped()
+            hasSynced = true
         }
         
         // READ ONLY
         
-        if isEstopped != ds.isEstopped() {
-            isEstopped = ds.isEstopped()
+        if _isCodeAlive != ds.isCodeAlive() {
+            _isCodeAlive = ds.isCodeAlive()
+            hasSynced = true
         }
         
-        if isCodeAlive != ds.isCodeAlive() {
-            isCodeAlive = ds.isCodeAlive()
+        if _isConnected != ds.isConnected() {
+            _isConnected = ds.isConnected()
+            hasSynced = true
         }
         
-        if isConnected != ds.isConnected() {
-            isConnected = ds.isConnected()
+        if _batteryVoltage != ds.getBatteryVoltage() {
+            _batteryVoltage = ds.getBatteryVoltage()
+            hasSynced = true
         }
         
-        if batteryVoltage != ds.getBatteryVoltage() {
-            batteryVoltage = ds.getBatteryVoltage()
+        if _dsMode != ds.getDSMode() {
+            _dsMode = ds.getDSMode()
+            hasSynced = true
         }
         
-        if dsMode != ds.getDSMode() {
-            dsMode = ds.getDSMode()
+        if hasSynced {
+            objectWillChange.send()
         }
+        
     }
 }
