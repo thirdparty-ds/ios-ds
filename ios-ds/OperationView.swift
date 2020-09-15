@@ -16,71 +16,155 @@ struct ModeSelector: View {
             Text("Autonomous").tag(GameMode.Autonomous)
             Text("Test").tag(GameMode.Test)
         }.pickerStyle(SegmentedPickerStyle())
+        .padding()
+        .shadow(radius: 5)
     }
 }
+
 
 struct EnableDisableButtons: View {
     @ObservedObject var state: DriverStationState = .shared
-    @State private var enabled = false
     
     var body: some View {
-        Picker(selection: $state.isEnabled, label: /*@START_MENU_TOKEN@*/Text("Picker")/*@END_MENU_TOKEN@*/) {
-            Text("Enable").tag(true)
-            Text("Disable").tag(false)
-        }.onChange(of: state.isEnabled, perform: { value in
-            // #TODO set gamemode
+        let cannotEnable = !state.isConnected || state.isEstopped || !state.isCodeAlive
+        
+        ZStack {
+            RoundedRectangle(cornerRadius: 15, style: .circular)
+                .frame(maxWidth: .infinity)
+                .frame(height: 100)
+                .foregroundColor(Color(UIColor.secondarySystemBackground))
+                .padding()
             
-        }).pickerStyle(SegmentedPickerStyle())
-        .introspectSegmentedControl{
-            segmentedControl in
+            GeometryReader { metrics in
+                HStack {
+                    Button(action: {
+                        state.isEnabled = true
+                        state.isEnabled = state.isEnabled
+                    }) {
+                        Text(state.isEnabled ? "Enabled" : "Enable")
+                            .fontWeight(.semibold)
+                            .font(.title)
+                            .underline(state.isEnabled, color: .white)
+                    }
+                    .frame(maxWidth: metrics.size.width * 0.3, maxHeight: .infinity)
+                    .foregroundColor(.white)
+                    .background(Color.green)
+                    .cornerRadius(15)
+                    
+                    
+                    Button(action: {
+                        state.isEnabled = false
+                        state.isEnabled = state.isEnabled
+                    }) {
+                        Text(state.isEnabled ? "Disable" : "Disabled")
+                            .fontWeight(.semibold)
+                            .font(.title)
+                            .underline(!state.isEnabled, color: .white)
+                    }
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .foregroundColor(.white)
+                    .background(Color.red)
+                    .cornerRadius(15)
+                    
+                }
+                
+                
+            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .padding()
+            .padding()
+            .blur(radius: cannotEnable ? 10 : 0)
             
+            if cannotEnable {
+                
+                RoundedRectangle(cornerRadius: 15, style: .circular)
+                    .frame(maxWidth: .infinity)
+                    .frame(height: 100)
+                    .foregroundColor(Color(UIColor.secondarySystemBackground))
+                    .opacity(0.7)
+                    .padding()
+                    .zIndex(2)
+                
+                if state.isEstopped {
+                    Text("Robot is Estopped!")
+                        .fontWeight(.bold)
+                        .font(.title)
+                        .animation(.default)
+                        .zIndex(3)
+                } else if !state.isConnected {
+                    Text("No connection to Robot!")
+                        .fontWeight(.bold)
+                        .font(.title)
+                        .animation(.default)
+                        .zIndex(3)
+                } else if !state.isCodeAlive {
+                    Text("Robot Code is not running!")
+                        .fontWeight(.bold)
+                        .font(.title)
+                        .animation(.default)
+                        .zIndex(3)
+                }
+                
+            }
             
-            UIView.transition(with:segmentedControl, duration: 0.25, options: .transitionCrossDissolve, animations: {
-                segmentedControl.selectedSegmentTintColor = state.isEnabled ? UIColor.green :  UIColor.red
-                segmentedControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: (state.isEnabled ? UIColor.black : UIColor.white)], for: UIControl.State.selected)
-            },
-            completion: nil)
-            
-        }.frame(minHeight: 400)
+        }
+        .frame(maxWidth: .infinity)
+        .frame(height: 100)
+        .shadow(radius: 5)
         
     }
 }
 
-
-//struct EnableDisableButtons: View {
-//    var body: some View {
-//        HStack {
-//            Button("Enable"){
-//
-//            }
-//            .padding()
-//            .frame(maxWidth: .infinity)
-//            .background(Color.green)
-//            .foregroundColor(.white)
-//            .cornerRadius(10)
-//
-//            Button("Disable"){
-//
-//            }
-//            .padding()
-//            .frame(maxWidth: .infinity)
-//            .background(Color.red)
-//            .foregroundColor(.white)
-//            .cornerRadius(10)
-//        }
-//    }
-//}
+struct TelemetryView: View {
+    @ObservedObject var state: DriverStationState = .shared
+    var body: some View {
+        
+        ZStack {
+            RoundedRectangle(cornerRadius: 15, style: .circular)
+                .frame(maxWidth: .infinity)
+                .frame(maxHeight: .infinity)
+                .foregroundColor(Color(UIColor.secondarySystemBackground))
+            
+            VStack {
+                HStack{
+                    Text("Communications")
+                    RoundedRectangle(cornerRadius: 15, style: .circular)
+                        .foregroundColor(state.isConnected ? .green : .red)
+                        .frame(height: 10)
+                }
+                Divider()
+                HStack{
+                    Text("Robot Code")
+                    RoundedRectangle(cornerRadius: 15, style: .circular)
+                        .foregroundColor(state.isCodeAlive ? .green : .red)
+                        .frame(height: 10)
+                }
+                Divider()
+                HStack{
+                    Text("Joysticks")
+                    RoundedRectangle(cornerRadius: 15, style: .circular)
+                        .foregroundColor(false ? .green : .red)
+                        .frame(height: 10)
+                }
+            }
+            .padding()
+        }
+        .frame(maxWidth: .infinity)
+        .frame(height: 150)
+        .padding()
+        .shadow(radius: 5)
+        .animation(.default)
+        
+    }
+}
 
 struct OperationView: View {
-    
-    //  #TODO get DS instance
-    
     var body: some View {
         
         VStack {
+            TelemetryView()
             ModeSelector()
-            
-            EnableDisableButtons().frame(height:400)
+            EnableDisableButtons()
             
         }
     }

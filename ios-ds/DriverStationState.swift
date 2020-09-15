@@ -172,6 +172,11 @@ class DriverStationState: ObservableObject {
             hasSynced = true
         }
         
+        // CUSTOM LOGIC
+        if !_isConnected || _isEstopped || !_isCodeAlive {
+            ds.disable()
+        }
+        
         if hasSynced {
             objectWillChange.send()
         }
