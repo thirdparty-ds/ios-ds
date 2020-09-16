@@ -69,7 +69,7 @@ class DriverStationState: ObservableObject {
         }
     }
     
-    private var _teamNumber: UInt32 = 4096
+    private var _teamNumber: UInt32 = UInt32(UserDefaults.standard.integer(forKey: "teamNumber"))
     
     var teamNumber: UInt32 {
         get {
@@ -78,6 +78,8 @@ class DriverStationState: ObservableObject {
         set(team) {
             print("[user] Update team to \(team)")
             ds.setTeamNumber(team: team)
+            _teamNumber = team
+            UserDefaults.standard.set(Int(_teamNumber), forKey: "teamNumber")
         }
     }
     
@@ -116,6 +118,15 @@ class DriverStationState: ObservableObject {
     
     private init() {
         ds = DriverStation()
+        
+        // Push defaults after DS is initialized
+        isEnabled = false
+        isEstopped = false
+        teamNumber = UInt32(UserDefaults.standard.integer(forKey: "teamNumber"))
+        gameMode = GameMode.Teleoperated
+        alliance = Alliance.Blue
+        
+        // Delay sync until after initial push
         timer = Timer.scheduledTimer(timeInterval: 0.02, target: self, selector: #selector(sync), userInfo: nil, repeats: true)
     }
     
@@ -144,7 +155,7 @@ class DriverStationState: ObservableObject {
             _gameMode = ds.getGameMode()
             hasSynced = true
         }
-                
+        
         if _isEstopped != ds.isEstopped() {
             _isEstopped = ds.isEstopped()
             hasSynced = true
@@ -173,13 +184,12 @@ class DriverStationState: ObservableObject {
         }
         
         // CUSTOM LOGIC
-        if !_isConnected || _isEstopped || !_isCodeAlive {
+        if !_isConnected || _isEstopped || !_isCodeAlive && _isEnabled {
             ds.disable()
         }
         
         if hasSynced {
             objectWillChange.send()
         }
-        
     }
 }
