@@ -7,6 +7,8 @@
 //
 //  https://github.com/momin96/SwiftUI-with-UIAlertController
 //
+//  MODIFIED
+//
 
 import SwiftUI
 
@@ -17,6 +19,8 @@ struct AlertControlView: UIViewControllerRepresentable {
     
     var title: String
     var message: String
+    
+    var keyboardType: UIKeyboardType = .default
     
     // Make sure that, this fuction returns UIViewController, instead of UIAlertController.
     // Because UIAlertController gets presented on UIViewController
@@ -38,8 +42,9 @@ struct AlertControlView: UIViewControllerRepresentable {
             // Adds UITextField & make sure that coordinator is delegate to UITextField.
             alert.addTextField { textField in
                 textField.placeholder = "Enter some text"
-                textField.text = self.textString            // setting initial value
+                textField.text = ""           // setting initial value
                 textField.delegate = context.coordinator    // using coordinator as delegate
+                textField.keyboardType = keyboardType
             }
             
             // As usual adding actions
@@ -91,11 +96,11 @@ struct AlertControlView: UIViewControllerRepresentable {
         }
         
         func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-            if let text = textField.text as NSString? {
-                self.control.textString = text.replacingCharacters(in: range, with: string)
-            } else {
-                self.control.textString = ""
-            }
+//            if let text = textField.text as NSString? {
+//                self.control.textString = text.replacingCharacters(in: range, with: string)
+//            } else {
+//                self.control.textString = ""
+//            }
             return true
         }
     }

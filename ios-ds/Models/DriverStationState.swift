@@ -11,8 +11,12 @@ import Foundation
 
 class DriverStationState: ObservableObject {
     
+    
     let ds: DriverStation
+    let batteryState: BatteryState
     var timer: Timer?
+    
+    private let dev: DeveloperOptions
     
     private var _isEnabled: Bool = false
     
@@ -69,6 +73,7 @@ class DriverStationState: ObservableObject {
         }
     }
     
+    
     private var _teamNumber: UInt32 = UInt32(UserDefaults.standard.integer(forKey: "teamNumber"))
     
     var teamNumber: UInt32 {
@@ -76,10 +81,13 @@ class DriverStationState: ObservableObject {
             _teamNumber
         }
         set(team) {
-            print("[user] Update team to \(team)")
-            ds.setTeamNumber(team: team)
-            _teamNumber = team
-            UserDefaults.standard.set(Int(_teamNumber), forKey: "teamNumber")
+            DispatchQueue.global().async {
+                print("[user] Update team to \(team)")
+                self.ds.setTeamNumber(team: team)
+                self._teamNumber = team
+                UserDefaults.standard.set(Int(self._teamNumber), forKey: "teamNumber")
+                self.publish = true
+            }
         }
     }
     
@@ -99,6 +107,7 @@ class DriverStationState: ObservableObject {
         }
         set(gm) {
             print("[user] Update gamemode to \(gm)")
+            ds.disable()
             ds.setGameMode(mode: gm)
         }
     }
@@ -115,9 +124,12 @@ class DriverStationState: ObservableObject {
         }
     }
     
+    private var publish = false
     
     private init() {
         ds = DriverStation()
+        batteryState = BatteryState(interval: 1/50)
+        dev = DeveloperOptions.shared
         
         // Push defaults after DS is initialized
         isEnabled = false
@@ -127,7 +139,7 @@ class DriverStationState: ObservableObject {
         alliance = Alliance.Blue
         
         // Delay sync until after initial push
-        timer = Timer.scheduledTimer(timeInterval: 0.02, target: self, selector: #selector(sync), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 1/50, target: self, selector: #selector(sync), userInfo: nil, repeats: true)
     }
     
     deinit {
@@ -137,50 +149,60 @@ class DriverStationState: ObservableObject {
     static let shared = DriverStationState()
     
     @objc func sync() {
-        var hasSynced = false
+        if publish {
+            publish = false
+            objectWillChange.send()
+        }
         
         // READ & WRITE
         
         if _isEnabled != ds.isEnabled() {
             _isEnabled = ds.isEnabled()
-            hasSynced = true
+            publish = true
         }
         
         if _teamNumber != ds.getTeamNumber() {
             _teamNumber = ds.getTeamNumber()
-            hasSynced = true
+            publish = true
         }
         
         if (_gameMode != ds.getGameMode()){
             _gameMode = ds.getGameMode()
-            hasSynced = true
+            publish = true
         }
         
         if _isEstopped != ds.isEstopped() {
             _isEstopped = ds.isEstopped()
-            hasSynced = true
+            publish = true
         }
         
         // READ ONLY
         
         if _isCodeAlive != ds.isCodeAlive() {
             _isCodeAlive = ds.isCodeAlive()
-            hasSynced = true
+            publish = true
         }
         
         if _isConnected != ds.isConnected() {
             _isConnected = ds.isConnected()
-            hasSynced = true
+            publish = true
         }
         
-        if _batteryVoltage != ds.getBatteryVoltage() {
+        if dev.isOn && dev.graphRandomData {
+            _batteryVoltage = Float.random(in: 0..<13)
+            batteryState.push(_batteryVoltage)
+            publish = true
+        }
+        
+        if _isConnected && !(dev.isOn && dev.graphRandomData) {
             _batteryVoltage = ds.getBatteryVoltage()
-            hasSynced = true
+            batteryState.push(_batteryVoltage)
+            publish = true
         }
         
         if _dsMode != ds.getDSMode() {
             _dsMode = ds.getDSMode()
-            hasSynced = true
+            publish = true
         }
         
         // CUSTOM LOGIC
@@ -188,8 +210,6 @@ class DriverStationState: ObservableObject {
             ds.disable()
         }
         
-        if hasSynced {
-            objectWillChange.send()
-        }
+
     }
 }

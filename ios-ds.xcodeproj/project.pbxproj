@@ -19,6 +19,8 @@
 		0E55953224F1DF3000646597 /* ios_dsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E55953124F1DF3000646597 /* ios_dsTests.swift */; };
 		0E55953D24F1DF3000646597 /* ios_dsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E55953C24F1DF3000646597 /* ios_dsUITests.swift */; };
 		0E86E60E24F1E3B400CAC852 /* liblibDS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E55954C24F1E2F100646597 /* liblibDS.a */; settings = {ATTRIBUTES = (Required, ); }; };
+		78217A2C25127AB50049152F /* ReverseScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78217A2B25127AB50049152F /* ReverseScrollView.swift */; };
+		78217A3025127BD70049152F /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 78217A2F25127BD70049152F /* LICENSE */; };
 		7848D6122511650B000E771F /* GameModeSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7848D6112511650A000E771F /* GameModeSelector.swift */; };
 		7848D6142511658A000E771F /* EnableDisableButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7848D6132511658A000E771F /* EnableDisableButtons.swift */; };
 		7848D616251165DD000E771F /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7848D615251165DD000E771F /* ProgressBar.swift */; };
@@ -30,6 +32,10 @@
 		788623212511D766002F2825 /* Battery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788623202511D766002F2825 /* Battery.swift */; };
 		788623232511E32B002F2825 /* AlertControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788623222511E32B002F2825 /* AlertControlView.swift */; };
 		788623252511EB4B002F2825 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788623242511EB4B002F2825 /* Team.swift */; };
+		78FF14972512EC9500F031A8 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FF14962512EC9500F031A8 /* Color+Extension.swift */; };
+		78FF149925130F1400F031A8 /* BatteryState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FF149825130F1400F031A8 /* BatteryState.swift */; };
+		78FF149B251339E000F031A8 /* DeveloperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FF149A251339E000F031A8 /* DeveloperView.swift */; };
+		78FF149D25133BA600F031A8 /* DeveloperOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FF149C25133BA600F031A8 /* DeveloperOptions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +76,8 @@
 		0E55954B24F1E2E500646597 /* libDS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = libDS.h; path = "ds-rs/libDS/libDS.h"; sourceTree = SOURCE_ROOT; };
 		0E55954C24F1E2F100646597 /* liblibDS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = liblibDS.a; path = "ds-rs/libDS/target/universal/release/liblibDS.a"; sourceTree = SOURCE_ROOT; };
 		0E86E60D24F1E3A700CAC852 /* libsystem_asl.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsystem_asl.tbd; path = usr/lib/system/libsystem_asl.tbd; sourceTree = SDKROOT; };
+		78217A2B25127AB50049152F /* ReverseScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReverseScrollView.swift; sourceTree = "<group>"; };
+		78217A2F25127BD70049152F /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		7848D6112511650A000E771F /* GameModeSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModeSelector.swift; sourceTree = "<group>"; };
 		7848D6132511658A000E771F /* EnableDisableButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnableDisableButtons.swift; sourceTree = "<group>"; };
 		7848D615251165DD000E771F /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
@@ -79,6 +87,10 @@
 		788623202511D766002F2825 /* Battery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Battery.swift; sourceTree = "<group>"; };
 		788623222511E32B002F2825 /* AlertControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertControlView.swift; sourceTree = "<group>"; };
 		788623242511EB4B002F2825 /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
+		78FF14962512EC9500F031A8 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
+		78FF149825130F1400F031A8 /* BatteryState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryState.swift; sourceTree = "<group>"; };
+		78FF149A251339E000F031A8 /* DeveloperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperView.swift; sourceTree = "<group>"; };
+		78FF149C25133BA600F031A8 /* DeveloperOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperOptions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				0E55951E24F1DF2F00646597 /* ios-ds */,
+				78217A2D25127AEC0049152F /* External */,
 				0E55953024F1DF3000646597 /* ios-dsTests */,
 				0E55953B24F1DF3000646597 /* ios-dsUITests */,
 				0E55951D24F1DF2F00646597 /* Products */,
@@ -136,7 +149,8 @@
 				0E55951F24F1DF2F00646597 /* ios_dsApp.swift */,
 				0E55952124F1DF2F00646597 /* ContentView.swift */,
 				785CC6DF250EC81900842F94 /* OperationView.swift */,
-				788623222511E32B002F2825 /* AlertControlView.swift */,
+				78FF149A251339E000F031A8 /* DeveloperView.swift */,
+				78FF14962512EC9500F031A8 /* Color+Extension.swift */,
 				7848D61B251166CF000E771F /* MiniViews */,
 				7848D61A2511669C000E771F /* Models */,
 				7848D61925116661000E771F /* DriverStation */,
@@ -183,6 +197,33 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		78217A2D25127AEC0049152F /* External */ = {
+			isa = PBXGroup;
+			children = (
+				78217A3125127BE80049152F /* AlertControlView */,
+				78217A2E25127BA50049152F /* ReverseScrollView */,
+			);
+			name = External;
+			path = "ios-ds/External";
+			sourceTree = "<group>";
+		};
+		78217A2E25127BA50049152F /* ReverseScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				78217A2B25127AB50049152F /* ReverseScrollView.swift */,
+				78217A2F25127BD70049152F /* LICENSE */,
+			);
+			path = ReverseScrollView;
+			sourceTree = "<group>";
+		};
+		78217A3125127BE80049152F /* AlertControlView */ = {
+			isa = PBXGroup;
+			children = (
+				788623222511E32B002F2825 /* AlertControlView.swift */,
+			);
+			path = AlertControlView;
+			sourceTree = "<group>";
+		};
 		7848D61925116661000E771F /* DriverStation */ = {
 			isa = PBXGroup;
 			children = (
@@ -199,6 +240,8 @@
 			isa = PBXGroup;
 			children = (
 				785CC6E4250F516200842F94 /* DriverStationState.swift */,
+				78FF149825130F1400F031A8 /* BatteryState.swift */,
+				78FF149C25133BA600F031A8 /* DeveloperOptions.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -306,6 +349,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ar,
 			);
 			mainGroup = 0E55951324F1DF2F00646597;
 			packageReferences = (
@@ -328,6 +372,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78217A3025127BD70049152F /* LICENSE in Resources */,
 				0E55952724F1DF3000646597 /* Preview Assets.xcassets in Resources */,
 				0E55952424F1DF3000646597 /* Assets.xcassets in Resources */,
 			);
@@ -377,17 +422,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				7848D6142511658A000E771F /* EnableDisableButtons.swift in Sources */,
+				78FF14972512EC9500F031A8 /* Color+Extension.swift in Sources */,
 				0E55952224F1DF2F00646597 /* ContentView.swift in Sources */,
 				0E232B0D24F33EBB0035EC51 /* DriverStation.swift in Sources */,
 				785CC6E0250EC81900842F94 /* OperationView.swift in Sources */,
 				0E15C1D524F34C62006725FE /* MessageStack.swift in Sources */,
 				7848D61825116616000E771F /* Telemetry.swift in Sources */,
+				78FF149B251339E000F031A8 /* DeveloperView.swift in Sources */,
 				788623232511E32B002F2825 /* AlertControlView.swift in Sources */,
 				7848D6122511650B000E771F /* GameModeSelector.swift in Sources */,
 				788623212511D766002F2825 /* Battery.swift in Sources */,
 				0E232B1324F347390035EC51 /* GameMode.swift in Sources */,
+				78217A2C25127AB50049152F /* ReverseScrollView.swift in Sources */,
 				0E232B1124F344690035EC51 /* DSMode.swift in Sources */,
+				78FF149925130F1400F031A8 /* BatteryState.swift in Sources */,
 				0E232B0F24F33EE10035EC51 /* Alliance.swift in Sources */,
+				78FF149D25133BA600F031A8 /* DeveloperOptions.swift in Sources */,
 				788623252511EB4B002F2825 /* Team.swift in Sources */,
 				0E55952024F1DF2F00646597 /* ios_dsApp.swift in Sources */,
 				7848D616251165DD000E771F /* ProgressBar.swift in Sources */,

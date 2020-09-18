@@ -7,70 +7,105 @@
 
 import SwiftUI
 
+struct TelemetryStubForTeam: View {
+    @ObservedObject var state: DriverStationState = .shared
+    @ObservedObject var dev: DeveloperOptions = .shared
+    var body: some View {
+        VStack {
+            HStack{
+                Text(" ").bold()
+
+            }
+            Divider()
+            HStack{
+                Text(" ").bold()
+ 
+            }
+            
+            if dev.isOn && dev.showTelemetryJoystick {
+                Divider()
+                HStack{
+                    Text(" ").bold()
+
+                }
+            }
+        }
+        .padding()
+        .background(
+            RoundedRectangle(cornerRadius: 15, style: .circular)
+                .foregroundColor(Color(UIColor.secondarySystemBackground))
+        )
+        .frame(maxWidth: .infinity)
+    }
+}
+
 struct Team: View {
     @ObservedObject var state: DriverStationState = .shared
+    @ObservedObject var dev: DeveloperOptions = .shared
     @State var number = "0000"
     @State var show = false
-    
     
     
     init() {
         number = String(state.teamNumber)
     }
     
-    
     var body: some View {
         
         ZStack {
         
-        AlertControlView(textString: $number, showAlert: $show, title: "Set Team Number", message: "qqq")
+            TelemetryStubForTeam().frame(height: 0).overlay(Rectangle()) // I hate ui - do not delete
+                .onTapGesture{
+                    show = true
+                }
+            
+            AlertControlView(textString: $number, showAlert: $show, title: "Set Team Number", message: "", keyboardType: .numberPad)
             .onChange(of: number){ num in
+                
+                if num == "8675309" {
+                    dev.isOn.toggle()
+                }
+                
+                if num == "0" {
+                    dev.isOn = false
+                }
                 
                 let newTeamNumber = Int(num) ?? -1
                 
                 if newTeamNumber != state.teamNumber {
-                    
-                    if newTeamNumber >= 0 {
+                    if 0 <= newTeamNumber && newTeamNumber <= 9999 {
                         state.teamNumber = UInt32(newTeamNumber)
-                    }
-                    
-                    if state.teamNumber == 0 {
-                        number = "0000"
-                    } else {
-                        number = String(state.teamNumber)
+                        number = num
                     }
                 }
-                
-                
             }
+            .frame(maxWidth: 0, maxHeight: 0) // "invisible" element
         
         Button(action: {
             show = true
         }) {
             VStack {
                 
-                Text("Team #")
+                Text("Team")
                     .bold()
                     .font(.title3)
                     .foregroundColor(.primary)
+                    .frame(maxWidth: .infinity, alignment: .topLeading)
                 
-                Text(state.teamNumber == 0 ? "0000" : String(state.teamNumber))
+                Text(String(state.teamNumber))
                     .bold()
                     .font(.title3)
                     .foregroundColor(
-                        state.teamNumber == 365 ? .green :
-                            state.teamNumber == 4096 ? .orange :
-                            .blue
+                        Color.teamColor
                     )
+//                    .frame(maxHeight: .infinity)
             }
         }
         .padding()
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(
             RoundedRectangle(cornerRadius: 15, style: .circular)
                 .foregroundColor(Color(UIColor.secondarySystemBackground))
         )
-        .padding()
     }
     }
 }

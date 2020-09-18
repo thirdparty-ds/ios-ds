@@ -9,6 +9,7 @@ import SwiftUI
 
 struct EnableDisableButtons: View {
     @ObservedObject var state: DriverStationState = .shared
+    @ObservedObject var dev: DeveloperOptions = .shared
     
     var body: some View {
         let cannotEnable: Bool = !state.isConnected || state.isEstopped || !state.isCodeAlive
@@ -17,15 +18,14 @@ struct EnableDisableButtons: View {
         ZStack {
             RoundedRectangle(cornerRadius: 15, style: .circular)
                 .frame(maxWidth: .infinity)
-                .frame(height: 100)
+                .frame(height: 90)
                 .foregroundColor(Color(UIColor.secondarySystemBackground))
-                .padding()
+//                .padding()
             
             GeometryReader { metrics in
                 HStack {
                     Button(action: {
                         state.isEnabled = true
-                        state.isEnabled = state.isEnabled
                     }) {
                         Text(state.isEnabled ? "Enabled" : "Enable")
                             .fontWeight(.semibold)
@@ -41,7 +41,6 @@ struct EnableDisableButtons: View {
                     
                     Button(action: {
                         state.isEnabled = false
-                        state.isEnabled = state.isEnabled
                     }) {
                         Text(state.isEnabled ? "Disable" : "Disabled")
                             .fontWeight(.semibold)
@@ -55,38 +54,39 @@ struct EnableDisableButtons: View {
                     .cornerRadius(15)
                     
                 }
+//                .padding()
                 
                 
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .padding()
-            .padding()
-            .blur(radius: cannotEnable ? 10 : 0)
+            .padding(8)
             
             
-            if cannotEnable && state.isEstopped {
-                
+            if cannotEnable && !(dev.isOn && dev.unhideEnableButton) || (dev.isOn && state.gameMode == GameMode.Test) {
+
                 RoundedRectangle(cornerRadius: 15, style: .circular)
                     .frame(maxWidth: .infinity)
-                    .frame(height: 100)
+                    .frame(height: 90)
                     .foregroundColor(Color(UIColor.secondarySystemBackground))
-                    .opacity(0.7)
-                    .padding()
+//                    .opacity(0.7)
+//                    .padding()
                     .zIndex(2)
-                
-                Text("Robot is Estopped!")
-                    .fontWeight(.bold)
-                    .font(.title)
-                    .animation(.default)
-                    .zIndex(3)
-                
-                
+
+                if state.isEstopped {
+                    Text("Robot is Estopped!")
+                        .fontWeight(.bold)
+                        .font(.title)
+                        .animation(.default)
+                        .zIndex(3)
+                }
+
+
             }
             
         }
         .animation(.easeOut(duration: 0.1))
         .frame(maxWidth: .infinity)
-        .frame(height: 100)
+        .frame(height: 90)
         
     }
 }

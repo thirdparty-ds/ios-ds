@@ -23,7 +23,7 @@ class DriverStation {
         ds = DS_DriverStation_new_team(team, DriverStation.getRawAlliance(alliance: alliance))
         
         // Add this DS's messages to the global message queue.
-        setTCPConsumer()
+//        setTCPConsumer()
     }
     
     convenience init(team: UInt32) {

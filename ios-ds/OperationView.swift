@@ -12,16 +12,22 @@ struct OperationView: View {
     var body: some View {
         
         VStack {
+            Battery()
+                .drawingGroup()
+            
             HStack {
+                Telemetry()
                 Team()
-                BatteryInfo()
+                    .frame(maxWidth: 82)
             }
-            Telemetry()
+
             GameModeSelector()
+                .padding(.bottom, 8)
             EnableDisableButtons()
+                .shadow(radius: 8)
             
         }
-        .padding(.bottom, 16)
+        .padding(8)
     }
 }
 

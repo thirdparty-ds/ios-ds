@@ -34,26 +34,49 @@ public struct CustomCardView<Content: View>: View, ChartBase {
 }
 
 
-struct BatteryInfo: View {
+struct Battery: View {
     @ObservedObject var state: DriverStationState = .shared
-    @State var chartData: [Double] = [0, 5, 6, 2, 13, 4, 3, 6]
-    
-    let blueStyle = ChartStyle(backgroundColor: .black,
-                               foregroundColor: [ColorGradient(.clear, .blue)])
+    @ObservedObject var dev: DeveloperOptions = .shared
+    @State var style = ChartStyle(backgroundColor: .clear, foregroundColor: [ColorGradient(.clear, Color.teamColor)])
     
     var body: some View {
         
-        CustomCardView(showShadow: true) {
-            ChartLabel("Battery Voltage", type: .custom(size: 18, padding: .init(top: 16, leading: 16, bottom: 0, trailing: 16), color: .primary))
-                .foregroundColor(Color(UIColor.secondarySystemBackground))
-                .background(Color(UIColor.secondarySystemBackground))
-            
+        
+        ZStack {
             LineChart()
+                .data(state.batteryState.voltages)
+                .chartStyle(ChartStyle(backgroundColor: .clear, foregroundColor: [ColorGradient(.clear, Color.teamColor)]))
+                .allowsHitTesting(/*@START_MENU_TOKEN@*/false/*@END_MENU_TOKEN@*/)
                 .foregroundColor(Color(UIColor.secondarySystemBackground))
                 .background(Color(UIColor.secondarySystemBackground))
+                .clipShape(
+                    RoundedRectangle(cornerRadius: 15, style: .circular)
+                )
+                .onTapGesture(count: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/, perform: {
+                    if dev.isOn && dev.graphExtraModes {
+                        state.batteryState.mode = state.batteryState.mode.next()
+                    }
+            })
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            
+            VStack(alignment: .trailing) {
+                Text("Battery")
+                    .bold()
+                    .font(.title3)
+                    .foregroundColor(.primary)
+                
+                Text(String(format: "%.1fV", state.batteryVoltage))
+                    .bold()
+                    .font(Font.system(.body, design: .monospaced))
+//                    .font(.title3)
+                    .foregroundColor(.primary)
+                    .frame(alignment: .trailing)
+            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+            .padding()
+            
         }
-        .data(chartData)
-        .chartStyle(blueStyle)
-        .padding()
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        
     }
 }

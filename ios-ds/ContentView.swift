@@ -8,16 +8,22 @@
 import SwiftUI
 
 struct ContentView: View {
+    @ObservedObject var dev: DeveloperOptions = .shared
     var body: some View {
         TabView {
             OperationView()
                 .tabItem {
                     Text("Operation")
                 }
-            OperationView()
-                .tabItem {
-                    Text("Operation2")
-                }
+            
+            if dev.isOn {
+                DeveloperView()
+                    .tabItem {
+                        Text("Developer")
+                    }
+            }
+            
+            
 //            DiagnosticsView()
 //            SetupView()
 //            ControllersView()

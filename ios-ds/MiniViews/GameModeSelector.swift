@@ -15,7 +15,7 @@ struct GameModeSelector: View {
             Text("Autonomous").tag(GameMode.Autonomous)
             Text("Test").tag(GameMode.Test)
         }.pickerStyle(SegmentedPickerStyle())
-        .padding()
+//        .padding()
     }
 }
 
