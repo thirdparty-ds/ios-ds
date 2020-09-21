@@ -8,6 +8,7 @@
 // https://medium.com/better-programming/the-best-way-to-use-environment-objects-in-swiftui-d9a88b1e253f
 
 import Foundation
+import SwiftUI
 
 class DriverStationState: ObservableObject {
     
@@ -15,6 +16,7 @@ class DriverStationState: ObservableObject {
     let ds: DriverStation
     let batteryState: BatteryState
     var timer: Timer?
+    let vibrator: UINotificationFeedbackGenerator
     
     private let dev: DeveloperOptions
     
@@ -32,6 +34,7 @@ class DriverStationState: ObservableObject {
                 print("[user] Disable")
                 ds.disable()
             }
+            self.publish = true
         }
     }
     
@@ -42,10 +45,11 @@ class DriverStationState: ObservableObject {
             _isEstopped
         }
         set(estop){
-            if estop {
+            if estop && _isEnabled {
                 print("[user] Estop!")
                 ds.estop()
             }
+            self.publish = true
         }
     }
     
@@ -109,6 +113,7 @@ class DriverStationState: ObservableObject {
             print("[user] Update gamemode to \(gm)")
             ds.disable()
             ds.setGameMode(mode: gm)
+            self.publish = true
         }
     }
     
@@ -120,7 +125,9 @@ class DriverStationState: ObservableObject {
         }
         set(al) {
             print("[user] Update alliance to \(al)")
+            ds.disable()
             ds.setAlliance(alliance: al)
+            self.publish = true
         }
     }
     
@@ -130,6 +137,7 @@ class DriverStationState: ObservableObject {
         ds = DriverStation()
         batteryState = BatteryState(interval: 1/50)
         dev = DeveloperOptions.shared
+        vibrator = UINotificationFeedbackGenerator()
         
         // Push defaults after DS is initialized
         isEnabled = false
@@ -159,6 +167,7 @@ class DriverStationState: ObservableObject {
         if _isEnabled != ds.isEnabled() {
             _isEnabled = ds.isEnabled()
             publish = true
+            vibrator.notificationOccurred(.success)
         }
         
         if _teamNumber != ds.getTeamNumber() {
@@ -174,6 +183,7 @@ class DriverStationState: ObservableObject {
         if _isEstopped != ds.isEstopped() {
             _isEstopped = ds.isEstopped()
             publish = true
+            vibrator.notificationOccurred(.error)
         }
         
         // READ ONLY
@@ -203,11 +213,13 @@ class DriverStationState: ObservableObject {
         if _dsMode != ds.getDSMode() {
             _dsMode = ds.getDSMode()
             publish = true
+            UISelectionFeedbackGenerator().selectionChanged()
         }
         
         // CUSTOM LOGIC
-        if !_isConnected || _isEstopped || !_isCodeAlive && _isEnabled {
+        if (!_isConnected || _isEstopped || !_isCodeAlive) && _isEnabled {
             ds.disable()
+            publish = true
         }
         
 

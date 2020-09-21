@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct DeveloperView: View {
+    @ObservedObject var state: DriverStationState = .shared
     @ObservedObject var dev: DeveloperOptions = .shared
 
     var body: some View {
@@ -18,6 +19,14 @@ struct DeveloperView: View {
                 Toggle(isOn: $dev.graphRandomData) {Text("Graph Random Data")}.padding()
                 Toggle(isOn: $dev.showTelemetryJoystick) {Text("Show Telemetry Joystick")}.padding()
                 Toggle(isOn: $dev.unhideEnableButton) {Text("Unhide Enable Buttons")}.padding()
+                Button(action: {
+                    state.ds.estop()
+                }) {
+                    Text("Estop")
+                }
+                .foregroundColor(.white)
+                .background(Color.red)
+                .cornerRadius(15)
 
             }
             .navigationBarTitle("Developer Options")

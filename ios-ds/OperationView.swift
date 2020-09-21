@@ -9,23 +9,41 @@ import SwiftUI
 
 
 struct OperationView: View {
+    @Environment(\.verticalSizeClass) var verticalSizeClass: UserInterfaceSizeClass?
     var body: some View {
         
-        VStack {
-            Battery()
-                .drawingGroup()
-            
-            HStack {
-                Telemetry()
-                Team()
-                    .frame(maxWidth: 82)
+        HStack {
+            if verticalSizeClass == .compact {
+                EnableDisableButtons(isVertical: true)
+                    .shadow(radius: 8)
             }
-
-            GameModeSelector()
-                .padding(.bottom, 8)
-            EnableDisableButtons()
-                .shadow(radius: 8)
             
+            VStack {
+                Battery().drawingGroup()
+                
+                RebootView()
+                
+                HStack {
+                    Telemetry()
+                    Team()
+                        .frame(maxWidth: 82)
+                }
+
+                GameModeSelector()
+                    .padding(.bottom, 8)
+                
+                GameModeSelector()
+                    .padding(.bottom, 8)
+                
+                GameModeSelector()
+                    .padding(.bottom, 8)
+                
+                if verticalSizeClass == .regular {
+                    EnableDisableButtons(isVertical: false)
+                        .shadow(radius: 8)
+                }
+                
+            }
         }
         .padding(8)
     }

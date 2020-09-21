@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Introspect
 
 struct GameModeSelector: View {
     @ObservedObject var state: DriverStationState = .shared
@@ -15,7 +16,10 @@ struct GameModeSelector: View {
             Text("Autonomous").tag(GameMode.Autonomous)
             Text("Test").tag(GameMode.Test)
         }.pickerStyle(SegmentedPickerStyle())
-//        .padding()
+        .introspectSegmentedControl{ segmentedControl in
+            segmentedControl.setTitleTextAttributes([NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 14)], for: UIControl.State.selected)
+            segmentedControl.setTitleTextAttributes([NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 14)], for: UIControl.State.normal)
+        }
     }
 }
 

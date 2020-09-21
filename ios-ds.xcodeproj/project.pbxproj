@@ -19,6 +19,7 @@
 		0E55953224F1DF3000646597 /* ios_dsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E55953124F1DF3000646597 /* ios_dsTests.swift */; };
 		0E55953D24F1DF3000646597 /* ios_dsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E55953C24F1DF3000646597 /* ios_dsUITests.swift */; };
 		0E86E60E24F1E3B400CAC852 /* liblibDS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E55954C24F1E2F100646597 /* liblibDS.a */; settings = {ATTRIBUTES = (Required, ); }; };
+		78096C122515C711006C7EC4 /* RebootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78096C112515C711006C7EC4 /* RebootView.swift */; };
 		78217A2C25127AB50049152F /* ReverseScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78217A2B25127AB50049152F /* ReverseScrollView.swift */; };
 		78217A3025127BD70049152F /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 78217A2F25127BD70049152F /* LICENSE */; };
 		7848D6122511650B000E771F /* GameModeSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7848D6112511650A000E771F /* GameModeSelector.swift */; };
@@ -28,10 +29,12 @@
 		785CC6E0250EC81900842F94 /* OperationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785CC6DF250EC81900842F94 /* OperationView.swift */; };
 		785CC6E3250ECC1300842F94 /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = 785CC6E2250ECC1300842F94 /* Introspect */; };
 		785CC6E5250F516200842F94 /* DriverStationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785CC6E4250F516200842F94 /* DriverStationState.swift */; };
+		787ADA20251711F800CCD591 /* PopupView in Frameworks */ = {isa = PBXBuildFile; productRef = 787ADA1F251711F800CCD591 /* PopupView */; };
 		7886231F2511CD07002F2825 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 7886231E2511CD07002F2825 /* SwiftUICharts */; };
 		788623212511D766002F2825 /* Battery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788623202511D766002F2825 /* Battery.swift */; };
 		788623232511E32B002F2825 /* AlertControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788623222511E32B002F2825 /* AlertControlView.swift */; };
 		788623252511EB4B002F2825 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788623242511EB4B002F2825 /* Team.swift */; };
+		78FDD58B2515FDB100760EBC /* UIWindow+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FDD58A2515FDB100760EBC /* UIWindow+Extension.swift */; };
 		78FF14972512EC9500F031A8 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FF14962512EC9500F031A8 /* Color+Extension.swift */; };
 		78FF149925130F1400F031A8 /* BatteryState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FF149825130F1400F031A8 /* BatteryState.swift */; };
 		78FF149B251339E000F031A8 /* DeveloperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FF149A251339E000F031A8 /* DeveloperView.swift */; };
@@ -76,6 +79,7 @@
 		0E55954B24F1E2E500646597 /* libDS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = libDS.h; path = "ds-rs/libDS/libDS.h"; sourceTree = SOURCE_ROOT; };
 		0E55954C24F1E2F100646597 /* liblibDS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = liblibDS.a; path = "ds-rs/libDS/target/universal/release/liblibDS.a"; sourceTree = SOURCE_ROOT; };
 		0E86E60D24F1E3A700CAC852 /* libsystem_asl.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsystem_asl.tbd; path = usr/lib/system/libsystem_asl.tbd; sourceTree = SDKROOT; };
+		78096C112515C711006C7EC4 /* RebootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RebootView.swift; sourceTree = "<group>"; };
 		78217A2B25127AB50049152F /* ReverseScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReverseScrollView.swift; sourceTree = "<group>"; };
 		78217A2F25127BD70049152F /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		7848D6112511650A000E771F /* GameModeSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModeSelector.swift; sourceTree = "<group>"; };
@@ -87,6 +91,7 @@
 		788623202511D766002F2825 /* Battery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Battery.swift; sourceTree = "<group>"; };
 		788623222511E32B002F2825 /* AlertControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertControlView.swift; sourceTree = "<group>"; };
 		788623242511EB4B002F2825 /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
+		78FDD58A2515FDB100760EBC /* UIWindow+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindow+Extension.swift"; sourceTree = "<group>"; };
 		78FF14962512EC9500F031A8 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		78FF149825130F1400F031A8 /* BatteryState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryState.swift; sourceTree = "<group>"; };
 		78FF149A251339E000F031A8 /* DeveloperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperView.swift; sourceTree = "<group>"; };
@@ -98,6 +103,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				787ADA20251711F800CCD591 /* PopupView in Frameworks */,
 				7886231F2511CD07002F2825 /* SwiftUICharts in Frameworks */,
 				0E86E60E24F1E3B400CAC852 /* liblibDS.a in Frameworks */,
 				785CC6E3250ECC1300842F94 /* Introspect in Frameworks */,
@@ -151,6 +157,7 @@
 				785CC6DF250EC81900842F94 /* OperationView.swift */,
 				78FF149A251339E000F031A8 /* DeveloperView.swift */,
 				78FF14962512EC9500F031A8 /* Color+Extension.swift */,
+				78FDD58A2515FDB100760EBC /* UIWindow+Extension.swift */,
 				7848D61B251166CF000E771F /* MiniViews */,
 				7848D61A2511669C000E771F /* Models */,
 				7848D61925116661000E771F /* DriverStation */,
@@ -255,6 +262,7 @@
 				7848D61725116616000E771F /* Telemetry.swift */,
 				788623202511D766002F2825 /* Battery.swift */,
 				788623242511EB4B002F2825 /* Team.swift */,
+				78096C112515C711006C7EC4 /* RebootView.swift */,
 			);
 			path = MiniViews;
 			sourceTree = "<group>";
@@ -279,6 +287,7 @@
 			packageProductDependencies = (
 				785CC6E2250ECC1300842F94 /* Introspect */,
 				7886231E2511CD07002F2825 /* SwiftUICharts */,
+				787ADA1F251711F800CCD591 /* PopupView */,
 			);
 			productName = "ios-ds";
 			productReference = 0E55951C24F1DF2F00646597 /* ios-ds.app */;
@@ -355,6 +364,7 @@
 			packageReferences = (
 				785CC6E1250ECC1300842F94 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
 				7886231D2511CD07002F2825 /* XCRemoteSwiftPackageReference "ChartView" */,
+				787ADA1E251711F800CCD591 /* XCRemoteSwiftPackageReference "PopupView" */,
 			);
 			productRefGroup = 0E55951D24F1DF2F00646597 /* Products */;
 			projectDirPath = "";
@@ -436,6 +446,8 @@
 				78217A2C25127AB50049152F /* ReverseScrollView.swift in Sources */,
 				0E232B1124F344690035EC51 /* DSMode.swift in Sources */,
 				78FF149925130F1400F031A8 /* BatteryState.swift in Sources */,
+				78096C122515C711006C7EC4 /* RebootView.swift in Sources */,
+				78FDD58B2515FDB100760EBC /* UIWindow+Extension.swift in Sources */,
 				0E232B0F24F33EE10035EC51 /* Alliance.swift in Sources */,
 				78FF149D25133BA600F031A8 /* DeveloperOptions.swift in Sources */,
 				788623252511EB4B002F2825 /* Team.swift in Sources */,
@@ -779,6 +791,14 @@
 				version = 0.1.0;
 			};
 		};
+		787ADA1E251711F800CCD591 /* XCRemoteSwiftPackageReference "PopupView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/exyte/PopupView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.0.7;
+			};
+		};
 		7886231D2511CD07002F2825 /* XCRemoteSwiftPackageReference "ChartView" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/AppPear/ChartView";
@@ -794,6 +814,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 785CC6E1250ECC1300842F94 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */;
 			productName = Introspect;
+		};
+		787ADA1F251711F800CCD591 /* PopupView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 787ADA1E251711F800CCD591 /* XCRemoteSwiftPackageReference "PopupView" */;
+			productName = PopupView;
 		};
 		7886231E2511CD07002F2825 /* SwiftUICharts */ = {
 			isa = XCSwiftPackageProductDependency;
