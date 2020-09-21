@@ -34,6 +34,7 @@
 		788623212511D766002F2825 /* Battery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788623202511D766002F2825 /* Battery.swift */; };
 		788623232511E32B002F2825 /* AlertControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788623222511E32B002F2825 /* AlertControlView.swift */; };
 		788623252511EB4B002F2825 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788623242511EB4B002F2825 /* Team.swift */; };
+		78B4FC0F2518B1BB00B1C7E4 /* RetriveDimension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B4FC0E2518B1BB00B1C7E4 /* RetriveDimension.swift */; };
 		78FDD58B2515FDB100760EBC /* UIWindow+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FDD58A2515FDB100760EBC /* UIWindow+Extension.swift */; };
 		78FF14972512EC9500F031A8 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FF14962512EC9500F031A8 /* Color+Extension.swift */; };
 		78FF149925130F1400F031A8 /* BatteryState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FF149825130F1400F031A8 /* BatteryState.swift */; };
@@ -91,6 +92,7 @@
 		788623202511D766002F2825 /* Battery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Battery.swift; sourceTree = "<group>"; };
 		788623222511E32B002F2825 /* AlertControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertControlView.swift; sourceTree = "<group>"; };
 		788623242511EB4B002F2825 /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
+		78B4FC0E2518B1BB00B1C7E4 /* RetriveDimension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetriveDimension.swift; sourceTree = "<group>"; };
 		78FDD58A2515FDB100760EBC /* UIWindow+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindow+Extension.swift"; sourceTree = "<group>"; };
 		78FF14962512EC9500F031A8 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		78FF149825130F1400F031A8 /* BatteryState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryState.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				0E55951F24F1DF2F00646597 /* ios_dsApp.swift */,
+				78B4FC0E2518B1BB00B1C7E4 /* RetriveDimension.swift */,
 				0E55952124F1DF2F00646597 /* ContentView.swift */,
 				785CC6DF250EC81900842F94 /* OperationView.swift */,
 				78FF149A251339E000F031A8 /* DeveloperView.swift */,
@@ -447,6 +450,7 @@
 				0E232B1124F344690035EC51 /* DSMode.swift in Sources */,
 				78FF149925130F1400F031A8 /* BatteryState.swift in Sources */,
 				78096C122515C711006C7EC4 /* RebootView.swift in Sources */,
+				78B4FC0F2518B1BB00B1C7E4 /* RetriveDimension.swift in Sources */,
 				78FDD58B2515FDB100760EBC /* UIWindow+Extension.swift in Sources */,
 				0E232B0F24F33EE10035EC51 /* Alliance.swift in Sources */,
 				78FF149D25133BA600F031A8 /* DeveloperOptions.swift in Sources */,

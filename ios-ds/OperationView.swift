@@ -10,6 +10,8 @@ import SwiftUI
 
 struct OperationView: View {
     @Environment(\.verticalSizeClass) var verticalSizeClass: UserInterfaceSizeClass?
+    @State var teamHeight: CGFloat = 0
+    
     var body: some View {
         
         HStack {
@@ -24,17 +26,13 @@ struct OperationView: View {
                 RebootView()
                 
                 HStack {
-                    Telemetry()
+                    Telemetry().overlay(RetrieveDimension(dim: .height, into: $teamHeight, when: .always))
+                    
                     Team()
                         .frame(maxWidth: 82)
+                        .frame(maxHeight: teamHeight)
                 }
 
-                GameModeSelector()
-                    .padding(.bottom, 8)
-                
-                GameModeSelector()
-                    .padding(.bottom, 8)
-                
                 GameModeSelector()
                     .padding(.bottom, 8)
                 
