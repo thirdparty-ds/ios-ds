@@ -1,5 +1,5 @@
 //
-//  RetriveDimension.swift
+//  RetrieveDimension.swift
 //  ios-ds
 //
 //  Created by Vasista Vovveti on 9/21/20.
