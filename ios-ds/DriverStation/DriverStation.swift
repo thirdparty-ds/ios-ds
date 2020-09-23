@@ -9,8 +9,7 @@ import Foundation
 
 
 /// Global stdout (message queue)
-var messageQueue = MessageStack()
-
+var messageQueue: Queue<String> = Queue()
 /// This class is a wrapper around the C DriverStation class to make it
 /// more usable from Swift code.
 class DriverStation {
@@ -131,7 +130,7 @@ class DriverStation {
     
     private func setTCPConsumer() {
         DS_DriverStation_set_tcp_consumer(ds) { (msg: StdoutMessage) in
-            messageQueue.push(String(cString: msg.message))
+            messageQueue.enqueue(String(cString: msg.message))
         }
     }
     

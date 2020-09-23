@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0E15C1D524F34C62006725FE /* MessageStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E15C1D424F34C62006725FE /* MessageStack.swift */; };
 		0E232B0D24F33EBB0035EC51 /* DriverStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E232B0C24F33EBB0035EC51 /* DriverStation.swift */; };
 		0E232B0F24F33EE10035EC51 /* Alliance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E232B0E24F33EE10035EC51 /* Alliance.swift */; };
 		0E232B1124F344690035EC51 /* DSMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E232B1024F344690035EC51 /* DSMode.swift */; };
@@ -22,6 +21,7 @@
 		78096C122515C711006C7EC4 /* RebootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78096C112515C711006C7EC4 /* RebootView.swift */; };
 		78217A2C25127AB50049152F /* ReverseScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78217A2B25127AB50049152F /* ReverseScrollView.swift */; };
 		78217A3025127BD70049152F /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 78217A2F25127BD70049152F /* LICENSE */; };
+		78464DEA251994F60027B46D /* RioLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78464DE9251994F60027B46D /* RioLog.swift */; };
 		7848D6122511650B000E771F /* GameModeSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7848D6112511650A000E771F /* GameModeSelector.swift */; };
 		7848D6142511658A000E771F /* EnableDisableButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7848D6132511658A000E771F /* EnableDisableButtons.swift */; };
 		7848D616251165DD000E771F /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7848D615251165DD000E771F /* ProgressBar.swift */; };
@@ -35,6 +35,8 @@
 		788623232511E32B002F2825 /* AlertControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788623222511E32B002F2825 /* AlertControlView.swift */; };
 		788623252511EB4B002F2825 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788623242511EB4B002F2825 /* Team.swift */; };
 		78B4FC0F2518B1BB00B1C7E4 /* RetrieveDimension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B4FC0E2518B1BB00B1C7E4 /* RetrieveDimension.swift */; };
+		78D38DE2251B13D2005F9EA5 /* LinkedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D38DE1251B13D2005F9EA5 /* LinkedList.swift */; };
+		78D38DE4251B1FE8005F9EA5 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D38DE3251B1FE8005F9EA5 /* Queue.swift */; };
 		78FDD58B2515FDB100760EBC /* UIWindow+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FDD58A2515FDB100760EBC /* UIWindow+Extension.swift */; };
 		78FF14972512EC9500F031A8 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FF14962512EC9500F031A8 /* Color+Extension.swift */; };
 		78FF149925130F1400F031A8 /* BatteryState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FF149825130F1400F031A8 /* BatteryState.swift */; };
@@ -60,7 +62,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0E15C1D424F34C62006725FE /* MessageStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageStack.swift; sourceTree = "<group>"; };
 		0E232B0C24F33EBB0035EC51 /* DriverStation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverStation.swift; sourceTree = "<group>"; };
 		0E232B0E24F33EE10035EC51 /* Alliance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alliance.swift; sourceTree = "<group>"; };
 		0E232B1024F344690035EC51 /* DSMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSMode.swift; sourceTree = "<group>"; };
@@ -83,6 +84,7 @@
 		78096C112515C711006C7EC4 /* RebootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RebootView.swift; sourceTree = "<group>"; };
 		78217A2B25127AB50049152F /* ReverseScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReverseScrollView.swift; sourceTree = "<group>"; };
 		78217A2F25127BD70049152F /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		78464DE9251994F60027B46D /* RioLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RioLog.swift; sourceTree = "<group>"; };
 		7848D6112511650A000E771F /* GameModeSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModeSelector.swift; sourceTree = "<group>"; };
 		7848D6132511658A000E771F /* EnableDisableButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnableDisableButtons.swift; sourceTree = "<group>"; };
 		7848D615251165DD000E771F /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
@@ -93,6 +95,8 @@
 		788623222511E32B002F2825 /* AlertControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertControlView.swift; sourceTree = "<group>"; };
 		788623242511EB4B002F2825 /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		78B4FC0E2518B1BB00B1C7E4 /* RetrieveDimension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetrieveDimension.swift; sourceTree = "<group>"; };
+		78D38DE1251B13D2005F9EA5 /* LinkedList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkedList.swift; sourceTree = "<group>"; };
+		78D38DE3251B1FE8005F9EA5 /* Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
 		78FDD58A2515FDB100760EBC /* UIWindow+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindow+Extension.swift"; sourceTree = "<group>"; };
 		78FF14962512EC9500F031A8 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		78FF149825130F1400F031A8 /* BatteryState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryState.swift; sourceTree = "<group>"; };
@@ -161,6 +165,8 @@
 				78FF149A251339E000F031A8 /* DeveloperView.swift */,
 				78FF14962512EC9500F031A8 /* Color+Extension.swift */,
 				78FDD58A2515FDB100760EBC /* UIWindow+Extension.swift */,
+				78D38DE1251B13D2005F9EA5 /* LinkedList.swift */,
+				78D38DE3251B1FE8005F9EA5 /* Queue.swift */,
 				7848D61B251166CF000E771F /* MiniViews */,
 				7848D61A2511669C000E771F /* Models */,
 				7848D61925116661000E771F /* DriverStation */,
@@ -241,7 +247,6 @@
 				0E232B0E24F33EE10035EC51 /* Alliance.swift */,
 				0E232B1024F344690035EC51 /* DSMode.swift */,
 				0E232B1224F347390035EC51 /* GameMode.swift */,
-				0E15C1D424F34C62006725FE /* MessageStack.swift */,
 			);
 			path = DriverStation;
 			sourceTree = "<group>";
@@ -266,6 +271,7 @@
 				788623202511D766002F2825 /* Battery.swift */,
 				788623242511EB4B002F2825 /* Team.swift */,
 				78096C112515C711006C7EC4 /* RebootView.swift */,
+				78464DE9251994F60027B46D /* RioLog.swift */,
 			);
 			path = MiniViews;
 			sourceTree = "<group>";
@@ -439,7 +445,6 @@
 				0E55952224F1DF2F00646597 /* ContentView.swift in Sources */,
 				0E232B0D24F33EBB0035EC51 /* DriverStation.swift in Sources */,
 				785CC6E0250EC81900842F94 /* OperationView.swift in Sources */,
-				0E15C1D524F34C62006725FE /* MessageStack.swift in Sources */,
 				7848D61825116616000E771F /* Telemetry.swift in Sources */,
 				78FF149B251339E000F031A8 /* DeveloperView.swift in Sources */,
 				788623232511E32B002F2825 /* AlertControlView.swift in Sources */,
@@ -447,8 +452,10 @@
 				788623212511D766002F2825 /* Battery.swift in Sources */,
 				0E232B1324F347390035EC51 /* GameMode.swift in Sources */,
 				78217A2C25127AB50049152F /* ReverseScrollView.swift in Sources */,
+				78464DEA251994F60027B46D /* RioLog.swift in Sources */,
 				0E232B1124F344690035EC51 /* DSMode.swift in Sources */,
 				78FF149925130F1400F031A8 /* BatteryState.swift in Sources */,
+				78D38DE4251B1FE8005F9EA5 /* Queue.swift in Sources */,
 				78096C122515C711006C7EC4 /* RebootView.swift in Sources */,
 				78B4FC0F2518B1BB00B1C7E4 /* RetrieveDimension.swift in Sources */,
 				78FDD58B2515FDB100760EBC /* UIWindow+Extension.swift in Sources */,
@@ -457,6 +464,7 @@
 				788623252511EB4B002F2825 /* Team.swift in Sources */,
 				0E55952024F1DF2F00646597 /* ios_dsApp.swift in Sources */,
 				7848D616251165DD000E771F /* ProgressBar.swift in Sources */,
+				78D38DE2251B13D2005F9EA5 /* LinkedList.swift in Sources */,
 				785CC6E5250F516200842F94 /* DriverStationState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
