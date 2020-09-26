@@ -7,32 +7,19 @@
 
 import Foundation
 
-class Queue<T> {
-    private var linkedList: LinkedList<T>
-    
-    init() {
-        linkedList = LinkedList<T>()
-    }
-    
-    var count: Int {
-        linkedList.count
-    }
-    
-    var isEmpty: Bool {
-        linkedList.isEmpty
-    }
+class Queue<T> : LinkedList<T> {
     
     func enqueue(_ value: T) {
-        linkedList.append(value)
+        self.append(value)
     }
     
     func dequeue() -> T? {
-        linkedList.popFirst()
+        self.popFirst()
     }
     
     func dequeueToArray() -> [T] {
         var array: [T] = []
-        while let value = linkedList.popLast() {
+        while let value = self.popLast() {
             array.append(value)
         }
         return array

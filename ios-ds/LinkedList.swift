@@ -7,19 +7,21 @@
 
 import Foundation
 
-public class Node<T> {
+public class LinkedListNode<T> {
     var value: T
-    var next: Node?
-    weak var prev: Node?
+    var next: LinkedListNode?
+    weak var prev: LinkedListNode?
     
     public init(_ value: T) {
         self.value = value
     }
 }
 
-public class LinkedList<T> {
-    private var head: Node<T>?
-    private var tail: Node<T>?
+class LinkedList<T> {
+
+    
+    private var head: LinkedListNode<T>?
+    private var tail: LinkedListNode<T>?
     private var _count: Int = 0
     
     var isEmpty: Bool {
@@ -31,16 +33,16 @@ public class LinkedList<T> {
         _count
     }
 
-    var first: Node<T>? {
+    var first: LinkedListNode<T>? {
         head
     }
     
-    var last: Node<T>? {
+    var last: LinkedListNode<T>? {
         tail ?? head
     }
     
     func append(_ value: T) {
-        let node = Node(value)
+        let node = LinkedListNode(value)
         
         tail?.next = node
         node.prev = tail
@@ -61,7 +63,7 @@ public class LinkedList<T> {
         }
         
         if at == 0 {
-            let node = Node(value)
+            let node = LinkedListNode(value)
             node.next = head
             head?.prev = node
             head = node
@@ -76,7 +78,7 @@ public class LinkedList<T> {
                 curr = curr?.next
             }
             
-            let node = Node(value)
+            let node = LinkedListNode(value)
             node.next = curr?.next
             curr?.next?.prev = node
             curr?.next = node
@@ -106,12 +108,70 @@ public class LinkedList<T> {
     }
     
     func removeFirst() {
-        popFirst()
+        _ = popFirst()
     }
     
     func removeLast() {
-        popLast()
+        _ = popLast()
     }
     
+
+    
+}
+
+extension LinkedList : Sequence {
+    func makeIterator() -> LinkedListIterator<T> {
+        return LinkedListIterator(self)
+    }
+}
+
+extension LinkedList: Collection {
+    typealias Index = Int
+    var startIndex: Int {
+        0
+    }
+    
+    var endIndex: Int {
+        self.count
+    }
+    
+    func index(after i: Int) -> Int {
+        i + 1
+    }
+    
+    subscript(position: Int) -> T {
+        var curr = head
+        
+        for _ in 0..<position {
+            curr = curr!.next
+        }
+        
+        return curr!.value
+        
+    }
+    
+}
+
+extension LinkedList: BidirectionalCollection {
+    func index(before i: Int) -> Int {
+        i - 1
+    }
+}
+
+extension LinkedList: RandomAccessCollection {
+    
+}
+
+struct LinkedListIterator<T>: IteratorProtocol {
+    var curr_node: LinkedListNode<T>?
+    
+    init(_ linkedList: LinkedList<T>) {
+        curr_node = linkedList.first
+    }
+    
+    mutating func next() -> T? {
+        defer { curr_node = curr_node?.next }
+        return curr_node?.value
+    }
     
 }
