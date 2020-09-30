@@ -13,6 +13,7 @@ class DeveloperOptions: ObservableObject {
     @Published var graphRandomData: Bool
     @Published var showTelemetryJoystick: Bool
     @Published var unhideEnableButton: Bool
+    @Published var rioLogRandomData: Bool
     
     
     init() {
@@ -21,6 +22,7 @@ class DeveloperOptions: ObservableObject {
         graphRandomData = false
         showTelemetryJoystick = false
         unhideEnableButton = false
+        rioLogRandomData = false
     }
     
     static let shared = DeveloperOptions()

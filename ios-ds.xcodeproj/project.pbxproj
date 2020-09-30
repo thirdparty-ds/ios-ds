@@ -35,8 +35,10 @@
 		788623232511E32B002F2825 /* AlertControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788623222511E32B002F2825 /* AlertControlView.swift */; };
 		788623252511EB4B002F2825 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788623242511EB4B002F2825 /* Team.swift */; };
 		78B4FC0F2518B1BB00B1C7E4 /* RetrieveDimension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B4FC0E2518B1BB00B1C7E4 /* RetrieveDimension.swift */; };
+		78B63AF12523258900A3BAD7 /* RioLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B63AF02523258900A3BAD7 /* RioLogView.swift */; };
 		78D38DE2251B13D2005F9EA5 /* LinkedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D38DE1251B13D2005F9EA5 /* LinkedList.swift */; };
 		78D38DE4251B1FE8005F9EA5 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D38DE3251B1FE8005F9EA5 /* Queue.swift */; };
+		78E2E02F25208B5E00919E0A /* NIO in Frameworks */ = {isa = PBXBuildFile; productRef = 78E2E02E25208B5E00919E0A /* NIO */; };
 		78FDD58B2515FDB100760EBC /* UIWindow+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FDD58A2515FDB100760EBC /* UIWindow+Extension.swift */; };
 		78FF14972512EC9500F031A8 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FF14962512EC9500F031A8 /* Color+Extension.swift */; };
 		78FF149925130F1400F031A8 /* BatteryState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FF149825130F1400F031A8 /* BatteryState.swift */; };
@@ -95,6 +97,7 @@
 		788623222511E32B002F2825 /* AlertControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertControlView.swift; sourceTree = "<group>"; };
 		788623242511EB4B002F2825 /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		78B4FC0E2518B1BB00B1C7E4 /* RetrieveDimension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetrieveDimension.swift; sourceTree = "<group>"; };
+		78B63AF02523258900A3BAD7 /* RioLogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RioLogView.swift; sourceTree = "<group>"; };
 		78D38DE1251B13D2005F9EA5 /* LinkedList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkedList.swift; sourceTree = "<group>"; };
 		78D38DE3251B1FE8005F9EA5 /* Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
 		78FDD58A2515FDB100760EBC /* UIWindow+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindow+Extension.swift"; sourceTree = "<group>"; };
@@ -113,6 +116,7 @@
 				7886231F2511CD07002F2825 /* SwiftUICharts in Frameworks */,
 				0E86E60E24F1E3B400CAC852 /* liblibDS.a in Frameworks */,
 				785CC6E3250ECC1300842F94 /* Introspect in Frameworks */,
+				78E2E02F25208B5E00919E0A /* NIO in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -173,6 +177,7 @@
 				0E55952324F1DF3000646597 /* Assets.xcassets */,
 				0E55952824F1DF3000646597 /* Info.plist */,
 				0E55952524F1DF3000646597 /* Preview Content */,
+				78B63AF02523258900A3BAD7 /* RioLogView.swift */,
 			);
 			path = "ios-ds";
 			sourceTree = "<group>";
@@ -297,6 +302,7 @@
 				785CC6E2250ECC1300842F94 /* Introspect */,
 				7886231E2511CD07002F2825 /* SwiftUICharts */,
 				787ADA1F251711F800CCD591 /* PopupView */,
+				78E2E02E25208B5E00919E0A /* NIO */,
 			);
 			productName = "ios-ds";
 			productReference = 0E55951C24F1DF2F00646597 /* ios-ds.app */;
@@ -374,6 +380,7 @@
 				785CC6E1250ECC1300842F94 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
 				7886231D2511CD07002F2825 /* XCRemoteSwiftPackageReference "ChartView" */,
 				787ADA1E251711F800CCD591 /* XCRemoteSwiftPackageReference "PopupView" */,
+				78E2E02D25208B5E00919E0A /* XCRemoteSwiftPackageReference "swift-nio" */,
 			);
 			productRefGroup = 0E55951D24F1DF2F00646597 /* Products */;
 			projectDirPath = "";
@@ -443,6 +450,7 @@
 				7848D6142511658A000E771F /* EnableDisableButtons.swift in Sources */,
 				78FF14972512EC9500F031A8 /* Color+Extension.swift in Sources */,
 				0E55952224F1DF2F00646597 /* ContentView.swift in Sources */,
+				78B63AF12523258900A3BAD7 /* RioLogView.swift in Sources */,
 				0E232B0D24F33EBB0035EC51 /* DriverStation.swift in Sources */,
 				785CC6E0250EC81900842F94 /* OperationView.swift in Sources */,
 				7848D61825116616000E771F /* Telemetry.swift in Sources */,
@@ -819,6 +827,14 @@
 				version = "2.0.0-beta.1";
 			};
 		};
+		78E2E02D25208B5E00919E0A /* XCRemoteSwiftPackageReference "swift-nio" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-nio";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.22.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -836,6 +852,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 7886231D2511CD07002F2825 /* XCRemoteSwiftPackageReference "ChartView" */;
 			productName = SwiftUICharts;
+		};
+		78E2E02E25208B5E00919E0A /* NIO */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 78E2E02D25208B5E00919E0A /* XCRemoteSwiftPackageReference "swift-nio" */;
+			productName = NIO;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -10,6 +10,7 @@ import SwiftUI
 
 struct OperationView: View {
     @Environment(\.verticalSizeClass) var verticalSizeClass: UserInterfaceSizeClass?
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass: UserInterfaceSizeClass?
     @State var teamHeight: CGFloat = 0
     
     var body: some View {
@@ -34,7 +35,7 @@ struct OperationView: View {
                 }
 
                 GameModeSelector()
-                    .padding(.bottom, 8)
+//                    .padding(.bottom, 8)
                 
                 if verticalSizeClass == .regular {
                     EnableDisableButtons(isVertical: false)
@@ -42,6 +43,11 @@ struct OperationView: View {
                 }
                 
             }
+            
+            if verticalSizeClass == .regular && horizontalSizeClass == .regular {
+                RioLog()
+            }
+            
         }
         .padding(8)
     }

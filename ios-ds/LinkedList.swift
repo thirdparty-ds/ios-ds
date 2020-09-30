@@ -20,9 +20,9 @@ public class LinkedListNode<T> {
 class LinkedList<T> {
 
     
-    private var head: LinkedListNode<T>?
-    private var tail: LinkedListNode<T>?
-    private var _count: Int = 0
+    internal var head: LinkedListNode<T>?
+    internal var tail: LinkedListNode<T>?
+    internal var _count: Int = 0
     
     var isEmpty: Bool {
         _count == 0
@@ -33,12 +33,12 @@ class LinkedList<T> {
         _count
     }
 
-    var first: LinkedListNode<T>? {
-        head
+    var first: T? {
+        head?.value
     }
     
-    var last: LinkedListNode<T>? {
-        tail ?? head
+    var last: T? {
+        tail?.value ?? first
     }
     
     func append(_ value: T) {
@@ -162,11 +162,20 @@ extension LinkedList: RandomAccessCollection {
     
 }
 
+extension LinkedList: Equatable {
+    static func == (lhs: LinkedList<T>, rhs: LinkedList<T>) -> Bool {
+        lhs === rhs &&
+        lhs.head === rhs.head &&
+        lhs.tail === rhs.tail &&
+        lhs.count == rhs.count
+    }
+}
+
 struct LinkedListIterator<T>: IteratorProtocol {
     var curr_node: LinkedListNode<T>?
     
     init(_ linkedList: LinkedList<T>) {
-        curr_node = linkedList.first
+        curr_node = linkedList.head
     }
     
     mutating func next() -> T? {

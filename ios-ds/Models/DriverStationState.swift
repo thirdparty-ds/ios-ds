@@ -9,12 +9,24 @@
 
 import Foundation
 import SwiftUI
+import NIO
+
+struct rioLogElement: Equatable, Hashable, Identifiable {
+    let value: String
+    let id: UUID = UUID()
+    
+    init(_ value: String) {
+        self.value = value
+    }
+    
+}
 
 class DriverStationState: ObservableObject {
     
     
     let ds: DriverStation
     let batteryState: BatteryState
+    var rioLog: NIO.CircularBuffer<rioLogElement>
     var timer: Timer?
     let vibrator: UINotificationFeedbackGenerator
     
@@ -136,6 +148,7 @@ class DriverStationState: ObservableObject {
     private init() {
         ds = DriverStation()
         batteryState = BatteryState(interval: 1/50)
+        rioLog = NIO.CircularBuffer<rioLogElement>(initialCapacity: 2000)
         dev = DeveloperOptions.shared
         vibrator = UINotificationFeedbackGenerator()
         
@@ -157,6 +170,22 @@ class DriverStationState: ObservableObject {
     static let shared = DriverStationState()
     
     @objc func sync() {
+        
+        if dev.rioLogRandomData {
+            rioLog.append(rioLogElement(String(Int.random(in: 0..<100))))
+            publish = true
+        }
+        
+        for message in rioLogMessageQueue {
+            rioLog.append(rioLogElement(message))
+            publish = true
+        }
+        
+        if rioLog.count == 2400 {
+            rioLog.removeFirst(800)
+            publish = true
+        }
+        
         if publish {
             publish = false
             objectWillChange.send()

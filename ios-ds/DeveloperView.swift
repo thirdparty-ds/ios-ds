@@ -19,6 +19,7 @@ struct DeveloperView: View {
                 Toggle(isOn: $dev.graphRandomData) {Text("Graph Random Data")}.padding()
                 Toggle(isOn: $dev.showTelemetryJoystick) {Text("Show Telemetry Joystick")}.padding()
                 Toggle(isOn: $dev.unhideEnableButton) {Text("Unhide Enable Buttons")}.padding()
+                Toggle(isOn: $dev.rioLogRandomData) {Text("rioLog print random data")}.padding()
                 Button(action: {
                     state.ds.estop()
                 }) {

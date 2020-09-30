@@ -6,10 +6,10 @@
 //
 
 import Foundation
-
+import NIO
 
 /// Global stdout (message queue)
-var messageQueue: Queue<String> = Queue()
+var rioLogMessageQueue: Queue<String> = Queue()
 /// This class is a wrapper around the C DriverStation class to make it
 /// more usable from Swift code.
 class DriverStation {
@@ -130,7 +130,7 @@ class DriverStation {
     
     private func setTCPConsumer() {
         DS_DriverStation_set_tcp_consumer(ds) { (msg: StdoutMessage) in
-            messageQueue.enqueue(String(cString: msg.message))
+            rioLogMessageQueue.enqueue(String(cString: msg.message))
         }
     }
     

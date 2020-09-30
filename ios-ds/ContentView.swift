@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
+    @Environment(\.verticalSizeClass) var verticalSizeClass: UserInterfaceSizeClass?
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass: UserInterfaceSizeClass?
     @ObservedObject var dev: DeveloperOptions = .shared
     var body: some View {
         TabView {
@@ -15,6 +17,13 @@ struct ContentView: View {
                 .tabItem {
                     Text("Operation")
                 }
+            
+            if !(verticalSizeClass == .regular && horizontalSizeClass == .regular) {
+                RioLogView()
+                    .tabItem {
+                        Text("RioLog")
+                    }
+            }
             
             if dev.isOn {
                 DeveloperView()
