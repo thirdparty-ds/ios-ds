@@ -22,20 +22,32 @@ struct OperationView: View {
             }
             
             VStack {
-                Battery().drawingGroup()
-                
-                RebootView()
                 
                 HStack {
-                    Telemetry().overlay(RetrieveDimension(dim: .height, into: $teamHeight, when: .always))
                     
-                    Team()
-                        .frame(maxWidth: 82)
-                        .frame(maxHeight: teamHeight)
+                    VStack {
+                        
+                        Battery().drawingGroup()
+                        
+                        RebootView()
+                        
+                        HStack {
+                            Telemetry().overlay(RetrieveDimension(dim: .height, into: $teamHeight, when: .always))
+                            
+                            Team()
+                                .frame(maxWidth: 82)
+                                .frame(maxHeight: teamHeight)
+                        }
+                        
+                        GameModeSelector()
+                        //                    .padding(.bottom, 8)
+                    }
+                    
+                    if verticalSizeClass == .regular && horizontalSizeClass == .regular {
+                        RioLog()
+                    }
+                    
                 }
-
-                GameModeSelector()
-//                    .padding(.bottom, 8)
                 
                 if verticalSizeClass == .regular {
                     EnableDisableButtons(isVertical: false)
@@ -44,9 +56,7 @@ struct OperationView: View {
                 
             }
             
-            if verticalSizeClass == .regular && horizontalSizeClass == .regular {
-                RioLog()
-            }
+            
             
         }
         .padding(8)
