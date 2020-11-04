@@ -21,6 +21,12 @@
 		78096C122515C711006C7EC4 /* RebootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78096C112515C711006C7EC4 /* RebootView.swift */; };
 		78217A2C25127AB50049152F /* ReverseScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78217A2B25127AB50049152F /* ReverseScrollView.swift */; };
 		78217A3025127BD70049152F /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 78217A2F25127BD70049152F /* LICENSE */; };
+		7828E6DE25524761005D50AA /* ControllerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7828E6DD25524761005D50AA /* ControllerButton.swift */; };
+		7828E6E42552476F005D50AA /* ABXY.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7828E6DF2552476F005D50AA /* ABXY.swift */; };
+		7828E6E52552476F005D50AA /* Joystick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7828E6E02552476F005D50AA /* Joystick.swift */; };
+		7828E6E62552476F005D50AA /* Trigger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7828E6E12552476F005D50AA /* Trigger.swift */; };
+		7828E6E82552476F005D50AA /* Dpad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7828E6E32552476F005D50AA /* Dpad.swift */; };
+		7828E6EA255247CE005D50AA /* ExampleLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7828E6E9255247CE005D50AA /* ExampleLayout.swift */; };
 		78464DEA251994F60027B46D /* RioLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78464DE9251994F60027B46D /* RioLog.swift */; };
 		7848D6122511650B000E771F /* GameModeSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7848D6112511650A000E771F /* GameModeSelector.swift */; };
 		7848D6142511658A000E771F /* EnableDisableButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7848D6132511658A000E771F /* EnableDisableButtons.swift */; };
@@ -86,6 +92,12 @@
 		78096C112515C711006C7EC4 /* RebootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RebootView.swift; sourceTree = "<group>"; };
 		78217A2B25127AB50049152F /* ReverseScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReverseScrollView.swift; sourceTree = "<group>"; };
 		78217A2F25127BD70049152F /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		7828E6DD25524761005D50AA /* ControllerButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerButton.swift; sourceTree = "<group>"; };
+		7828E6DF2552476F005D50AA /* ABXY.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ABXY.swift; sourceTree = "<group>"; };
+		7828E6E02552476F005D50AA /* Joystick.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Joystick.swift; sourceTree = "<group>"; };
+		7828E6E12552476F005D50AA /* Trigger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trigger.swift; sourceTree = "<group>"; };
+		7828E6E32552476F005D50AA /* Dpad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dpad.swift; sourceTree = "<group>"; };
+		7828E6E9255247CE005D50AA /* ExampleLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleLayout.swift; sourceTree = "<group>"; };
 		78464DE9251994F60027B46D /* RioLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RioLog.swift; sourceTree = "<group>"; };
 		7848D6112511650A000E771F /* GameModeSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModeSelector.swift; sourceTree = "<group>"; };
 		7848D6132511658A000E771F /* EnableDisableButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnableDisableButtons.swift; sourceTree = "<group>"; };
@@ -140,6 +152,7 @@
 		0E55951324F1DF2F00646597 = {
 			isa = PBXGroup;
 			children = (
+				7828E6DC2552473B005D50AA /* VirtualController */,
 				0E55951E24F1DF2F00646597 /* ios-ds */,
 				78217A2D25127AEC0049152F /* External */,
 				0E55953024F1DF3000646597 /* ios-dsTests */,
@@ -243,6 +256,19 @@
 				788623222511E32B002F2825 /* AlertControlView.swift */,
 			);
 			path = AlertControlView;
+			sourceTree = "<group>";
+		};
+		7828E6DC2552473B005D50AA /* VirtualController */ = {
+			isa = PBXGroup;
+			children = (
+				7828E6DD25524761005D50AA /* ControllerButton.swift */,
+				7828E6DF2552476F005D50AA /* ABXY.swift */,
+				7828E6E32552476F005D50AA /* Dpad.swift */,
+				7828E6E02552476F005D50AA /* Joystick.swift */,
+				7828E6E12552476F005D50AA /* Trigger.swift */,
+				7828E6E9255247CE005D50AA /* ExampleLayout.swift */,
+			);
+			path = VirtualController;
 			sourceTree = "<group>";
 		};
 		7848D61925116661000E771F /* DriverStation */ = {
@@ -448,10 +474,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				7848D6142511658A000E771F /* EnableDisableButtons.swift in Sources */,
+				7828E6EA255247CE005D50AA /* ExampleLayout.swift in Sources */,
 				78FF14972512EC9500F031A8 /* Color+Extension.swift in Sources */,
 				0E55952224F1DF2F00646597 /* ContentView.swift in Sources */,
+				7828E6E42552476F005D50AA /* ABXY.swift in Sources */,
 				78B63AF12523258900A3BAD7 /* RioLogView.swift in Sources */,
 				0E232B0D24F33EBB0035EC51 /* DriverStation.swift in Sources */,
+				7828E6E62552476F005D50AA /* Trigger.swift in Sources */,
+				7828E6DE25524761005D50AA /* ControllerButton.swift in Sources */,
 				785CC6E0250EC81900842F94 /* OperationView.swift in Sources */,
 				7848D61825116616000E771F /* Telemetry.swift in Sources */,
 				78FF149B251339E000F031A8 /* DeveloperView.swift in Sources */,
@@ -462,6 +492,7 @@
 				78217A2C25127AB50049152F /* ReverseScrollView.swift in Sources */,
 				78464DEA251994F60027B46D /* RioLog.swift in Sources */,
 				0E232B1124F344690035EC51 /* DSMode.swift in Sources */,
+				7828E6E82552476F005D50AA /* Dpad.swift in Sources */,
 				78FF149925130F1400F031A8 /* BatteryState.swift in Sources */,
 				78D38DE4251B1FE8005F9EA5 /* Queue.swift in Sources */,
 				78096C122515C711006C7EC4 /* RebootView.swift in Sources */,
@@ -472,6 +503,7 @@
 				788623252511EB4B002F2825 /* Team.swift in Sources */,
 				0E55952024F1DF2F00646597 /* ios_dsApp.swift in Sources */,
 				7848D616251165DD000E771F /* ProgressBar.swift in Sources */,
+				7828E6E52552476F005D50AA /* Joystick.swift in Sources */,
 				78D38DE2251B13D2005F9EA5 /* LinkedList.swift in Sources */,
 				785CC6E5250F516200842F94 /* DriverStationState.swift in Sources */,
 			);
