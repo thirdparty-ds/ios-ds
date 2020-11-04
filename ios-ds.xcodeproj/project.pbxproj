@@ -27,6 +27,7 @@
 		7828E6E62552476F005D50AA /* Trigger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7828E6E12552476F005D50AA /* Trigger.swift */; };
 		7828E6E82552476F005D50AA /* Dpad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7828E6E32552476F005D50AA /* Dpad.swift */; };
 		7828E6EA255247CE005D50AA /* ExampleLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7828E6E9255247CE005D50AA /* ExampleLayout.swift */; };
+		7828E6F12552899B005D50AA /* JoystickSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7828E6F02552899B005D50AA /* JoystickSelector.swift */; };
 		78464DEA251994F60027B46D /* RioLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78464DE9251994F60027B46D /* RioLog.swift */; };
 		7848D6122511650B000E771F /* GameModeSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7848D6112511650A000E771F /* GameModeSelector.swift */; };
 		7848D6142511658A000E771F /* EnableDisableButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7848D6132511658A000E771F /* EnableDisableButtons.swift */; };
@@ -98,6 +99,7 @@
 		7828E6E12552476F005D50AA /* Trigger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trigger.swift; sourceTree = "<group>"; };
 		7828E6E32552476F005D50AA /* Dpad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dpad.swift; sourceTree = "<group>"; };
 		7828E6E9255247CE005D50AA /* ExampleLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleLayout.swift; sourceTree = "<group>"; };
+		7828E6F02552899B005D50AA /* JoystickSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoystickSelector.swift; sourceTree = "<group>"; };
 		78464DE9251994F60027B46D /* RioLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RioLog.swift; sourceTree = "<group>"; };
 		7848D6112511650A000E771F /* GameModeSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModeSelector.swift; sourceTree = "<group>"; };
 		7848D6132511658A000E771F /* EnableDisableButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnableDisableButtons.swift; sourceTree = "<group>"; };
@@ -303,6 +305,7 @@
 				788623242511EB4B002F2825 /* Team.swift */,
 				78096C112515C711006C7EC4 /* RebootView.swift */,
 				78464DE9251994F60027B46D /* RioLog.swift */,
+				7828E6F02552899B005D50AA /* JoystickSelector.swift */,
 			);
 			path = MiniViews;
 			sourceTree = "<group>";
@@ -501,6 +504,7 @@
 				0E232B0F24F33EE10035EC51 /* Alliance.swift in Sources */,
 				78FF149D25133BA600F031A8 /* DeveloperOptions.swift in Sources */,
 				788623252511EB4B002F2825 /* Team.swift in Sources */,
+				7828E6F12552899B005D50AA /* JoystickSelector.swift in Sources */,
 				0E55952024F1DF2F00646597 /* ios_dsApp.swift in Sources */,
 				7848D616251165DD000E771F /* ProgressBar.swift in Sources */,
 				7828E6E52552476F005D50AA /* Joystick.swift in Sources */,
