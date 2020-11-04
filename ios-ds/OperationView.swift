@@ -35,7 +35,6 @@ struct OperationView: View {
                             Telemetry().overlay(RetrieveDimension(dim: .height, into: $teamHeight, when: .always))
                             
                             Team()
-                                .frame(maxWidth: 82)
                                 .frame(maxHeight: teamHeight)
                         }
                         
